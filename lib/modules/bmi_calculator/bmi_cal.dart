@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:c4a/pages/BMI%20CALCULATOR/bmi_result.dart';
+import 'package:c4a/modules/bmi_result/bmi_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
