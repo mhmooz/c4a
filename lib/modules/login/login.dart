@@ -1,3 +1,4 @@
+import 'package:c4a/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -67,18 +68,11 @@ class LogIn extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                width: 200,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                    color: Colors.purple),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text("Login",
-                      style: TextStyle(color: Colors.white, fontSize: 30)),
-                ),
-              ),
+              defaultButton(
+                  function: () {
+                    print("hi");
+                  },
+                  text: 'log in'),
             ],
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

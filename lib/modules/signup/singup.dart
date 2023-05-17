@@ -1,3 +1,4 @@
+import 'package:c4a/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -81,20 +82,7 @@ class SignUp extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Container(
-            width: 200,
-            height: 60,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(25)),
-                color: Colors.purple),
-            child: TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/login');
-              },
-              child: const Text("Sign Up",
-                  style: TextStyle(color: Colors.white, fontSize: 30)),
-            ),
-          )
+          defaultButton(function: () {}, text: 'sign up')
         ],
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
