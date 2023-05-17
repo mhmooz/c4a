@@ -2,18 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-// ignore: empty_constructor_bodies
-class UserModel {
-  final int id;
-  final String name;
-  final String phone;
+import '../../models/user/user_model.dart';
 
-  UserModel({
-    required this.name,
-    required this.phone,
-    required this.id,
-  });
-}
+// ignore: empty_constructor_bodies
+
 
 class Usersdata extends StatelessWidget {
   List<UserModel> users = [
