@@ -34,37 +34,18 @@ class LogIn extends StatelessWidget {
         body: Container(
           child: Column(
             children: [
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: "Your Email:",
-                  hintStyle: TextStyle(color: Colors.black45),
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
-                  filled: true,
-                  fillColor: Color.fromARGB(255, 187, 162, 230),
-                ),
-                enableSuggestions: false,
-                autocorrect: false,
-                keyboardType: TextInputType.emailAddress,
-              ),
+              defaultFormField(
+                  hintText: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                  validate: () {},
+                  prefix: Icon(Icons.email)),
               SizedBox(height: 20),
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: "Your Password:",
-                  hintStyle: TextStyle(color: Colors.black45),
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: Icon(Icons.remove_red_eye_rounded),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
-                  filled: true,
-                  fillColor: Color.fromARGB(255, 187, 162, 230),
-                ),
-                enableSuggestions: false,
-                autocorrect: false,
-                obscureText: true,
-                keyboardType: TextInputType.visiblePassword,
-              ),
+              defaultFormField(
+                  isPassword: true,
+                  hintText: 'Password',
+                  keyboardType: TextInputType.visiblePassword,
+                  validate: () {},
+                  prefix: Icon(Icons.lock)),
               SizedBox(
                 height: 20,
               ),
