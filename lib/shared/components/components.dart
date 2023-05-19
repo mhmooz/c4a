@@ -9,7 +9,7 @@ Widget defaultButton({
   Color fontColor = Colors.white,
   Color backgroundColor = Colors.purple,
   double radius = 25,
-  required Function function,
+  required Function() function,
   required String text,
 }) =>
     Container(
@@ -18,17 +18,18 @@ Widget defaultButton({
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25), color: backgroundColor),
       child: MaterialButton(
-        onPressed: function(),
+        onPressed: function,
         child: Text(isUpperCase ? text.toUpperCase() : text,
             style: TextStyle(color: fontColor, fontSize: fontsize)),
       ),
     );
 
 Widget defaultFormField({
+  required TextEditingController controller,
   required String hintText,
   required TextInputType keyboardType,
-  required Function validate,
   required Icon prefix,
+  required String? Function(String?)? validat,
   bool isPassword = false,
   bool enable_Suggestion = false,
   bool auto_correct = false,
@@ -36,22 +37,24 @@ Widget defaultFormField({
   Color fillColor = const Color.fromARGB(255, 187, 162, 230),
   double radius = 25,
   bool filled = true,
+  Function()? show_password,
+  Icon? suffix,
+  Function()? suffixPressed,
 }) =>
     TextFormField(
+      controller: controller,
       decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(color: hint_color),
           prefixIcon: prefix,
-          suffixIcon: isPassword
-              ? IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.remove_red_eye))
+          suffixIcon: suffix != null
+              ? IconButton(onPressed: suffixPressed, icon: suffix)
               : null,
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(radius)),
           filled: filled,
           fillColor: fillColor),
-      validator: validate(),
+      validator: validat,
       enableSuggestions: enable_Suggestion,
       autocorrect: auto_correct,
       keyboardType: keyboardType,

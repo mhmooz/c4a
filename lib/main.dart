@@ -17,12 +17,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(initialRoute: '/', routes: {
       '/': (context) => const Welcome(),
-      '/login': (context) => const LogIn(),
-      '/signup': (context) => const SignUp(),
+      '/login': (context) => LogIn(),
+      '/signup': (context) => SignUp(),
       '/messenger': (context) => const Messenger(),
       '/users_data': (context) => Usersdata(),
       '/simplecounter': (context) => SimpleCounter(),
-      '/bmical':(context)=> BmiCalculator(),
+      '/bmical': (context) => BmiCalculator(),
     });
   }
 }

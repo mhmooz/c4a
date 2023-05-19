@@ -2,8 +2,21 @@ import 'package:c4a/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LogIn extends StatelessWidget {
-  const LogIn({Key? key}) : super(key: key);
+class LogIn extends StatefulWidget {
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
+  final formKey = GlobalKey<FormState>();
+
+  final username_controller = TextEditingController();
+
+  final email_controller = TextEditingController();
+
+  final pass_controller = TextEditingController();
+  bool isPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,27 +44,44 @@ class LogIn extends StatelessWidget {
           },
           child: Icon(Icons.home),
         ),
-        body: Container(
+        body: Form(
+          key: formKey,
           child: Column(
             children: [
               defaultFormField(
+                  controller: email_controller,
                   hintText: 'Email',
                   keyboardType: TextInputType.emailAddress,
-                  validate: () {},
+                  validat: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Email Must Not Be Empty';
+                    }
+                    return null;
+                  },
                   prefix: Icon(Icons.email)),
               SizedBox(height: 20),
               defaultFormField(
-                  isPassword: true,
+                  suffix: Icon(Icons.remove_red_eye),
+                  suffixPressed: () {
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
+                  },
+                  prefix: Icon(Icons.lock),
+                  controller: pass_controller,
+                  isPassword: isPassword,
                   hintText: 'Password',
                   keyboardType: TextInputType.visiblePassword,
-                  validate: () {},
-                  prefix: Icon(Icons.lock)),
-              SizedBox(
-                height: 20,
-              ),
+                  validat: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'Password is too short';
+                    }
+                    return null;
+                  }),
+              SizedBox(height: 20),
               defaultButton(
                   function: () {
-                    print("hi");
+                    if (formKey.currentState!.validate()) {}
                   },
                   text: 'log in'),
             ],
