@@ -7,6 +7,8 @@ import 'package:c4a/modules/users/users.dart';
 import 'package:c4a/modules/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 
+import 'layout/todo_app_layout.dart';
+
 void main() {
   runApp(const HomePage());
 }
@@ -17,12 +19,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(initialRoute: '/', routes: {
       '/': (context) => const Welcome(),
-      '/login': (context) => LogIn(),
-      '/signup': (context) => SignUp(),
+      '/login': (context) => const LogIn(),
+      '/signup': (context) => const SignUp(),
       '/messenger': (context) => const Messenger(),
       '/users_data': (context) => Usersdata(),
-      '/simplecounter': (context) => SimpleCounter(),
-      '/bmical': (context) => BmiCalculator(),
+      '/simplecounter': (context) => const SimpleCounter(),
+      '/bmical': (context) => const BmiCalculator(),
+      '/todo_app':(context) => const TODO_App(),
     });
   }
 }

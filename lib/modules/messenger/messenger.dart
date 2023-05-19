@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Messenger extends StatelessWidget {
   const Messenger({super.key});
@@ -11,14 +9,14 @@ class Messenger extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 8.0),
           child: CircleAvatar(
             backgroundImage: AssetImage('assets/34.jpg'),
             radius: 15,
           ),
         ),
-        title: Text(
+        title: const Text(
           "Chats",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 28, color: Colors.black),
@@ -26,13 +24,13 @@ class Messenger extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.camera_alt),
-            color: Color.fromARGB(255, 26, 26, 26),
+            icon: const Icon(Icons.camera_alt),
+            color: const Color.fromARGB(255, 26, 26, 26),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.edit),
-            color: Color.fromARGB(255, 26, 26, 26),
+            icon: const Icon(Icons.edit),
+            color: const Color.fromARGB(255, 26, 26, 26),
           )
         ],
       ),
@@ -42,20 +40,20 @@ class Messenger extends StatelessWidget {
           children: [
             Container(
               height: 40,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey,
               ),
               child: Row(
                 children: [
-                  Icon(Icons.search),
-                  SizedBox(
+                  const Icon(Icons.search),
+                  const SizedBox(
                     width: 20,
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Search",
                       style: TextStyle(color: Colors.black38, fontSize: 18),
                     ),
@@ -69,13 +67,13 @@ class Messenger extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 110,
                       child: ListView.separated(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) => buildStoriesItem(),
-                          separatorBuilder: (context, index) => SizedBox(
+                          separatorBuilder: (context, index) => const SizedBox(
                                 width: 20,
                               ),
                           itemCount: 7),
@@ -90,10 +88,10 @@ class Messenger extends StatelessWidget {
                 child: Column(
                   children: [
                     ListView.separated(
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) => buildChatItem(),
-                        separatorBuilder: (context, index) => SizedBox(
+                        separatorBuilder: (context, index) => const SizedBox(
                               height: 20,
                             ),
                         itemCount: 10)
@@ -108,7 +106,7 @@ class Messenger extends StatelessWidget {
   }
 
   Widget buildStoriesItem() {
-    return Container(
+    return const SizedBox(
       width: 70,
       height: 100,
       child: Column(
@@ -140,17 +138,17 @@ class Messenger extends StatelessWidget {
   Widget buildChatItem() {
     return Row(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           backgroundImage: AssetImage('assets/34.jpg'),
           radius: 30,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Osama Kheir",
               textAlign: TextAlign.start,
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
@@ -162,14 +160,14 @@ class Messenger extends StatelessWidget {
                   textAlign: TextAlign.start,
                   style: TextStyle(color: Colors.grey[700]),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Text(
                   "Sat",
                   style: TextStyle(color: Colors.grey[999]),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 2,
                 ),
                 Text(

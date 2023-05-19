@@ -1,8 +1,9 @@
 import 'package:c4a/shared/components/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LogIn extends StatefulWidget {
+  const LogIn({super.key});
+
   @override
   State<LogIn> createState() => _LogInState();
 }
@@ -22,18 +23,18 @@ class _LogInState extends State<LogIn> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Log In",
+          title: const Text("Log In",
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
           centerTitle: true,
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.message),
+              icon: const Icon(Icons.message),
               color: Colors.white,
             ),
             IconButton(
-                onPressed: () {}, icon: Icon(Icons.search), color: Colors.white)
+                onPressed: () {}, icon: const Icon(Icons.search), color: Colors.white)
           ],
           backgroundColor: Colors.purple,
         ),
@@ -42,11 +43,13 @@ class _LogInState extends State<LogIn> {
           onPressed: () {
             Navigator.pop(context, '/');
           },
-          child: Icon(Icons.home),
+          child: const Icon(Icons.home),
         ),
         body: Form(
           key: formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               defaultFormField(
                   controller: email_controller,
@@ -58,16 +61,18 @@ class _LogInState extends State<LogIn> {
                     }
                     return null;
                   },
-                  prefix: Icon(Icons.email)),
-              SizedBox(height: 20),
+                  prefix: const Icon(Icons.email)),
+              const SizedBox(height: 20),
               defaultFormField(
-                  suffix: Icon(Icons.remove_red_eye),
+                  suffix: isPassword
+                      ? const Icon(Icons.visibility)
+                      : const Icon(Icons.visibility_off),
                   suffixPressed: () {
                     setState(() {
                       isPassword = !isPassword;
                     });
                   },
-                  prefix: Icon(Icons.lock),
+                  prefix: const Icon(Icons.lock),
                   controller: pass_controller,
                   isPassword: isPassword,
                   hintText: 'Password',
@@ -78,15 +83,13 @@ class _LogInState extends State<LogIn> {
                     }
                     return null;
                   }),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               defaultButton(
                   function: () {
                     if (formKey.currentState!.validate()) {}
                   },
                   text: 'log in'),
             ],
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ),
       ),

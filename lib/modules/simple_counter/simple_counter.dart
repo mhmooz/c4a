@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class SimpleCounter extends StatefulWidget {
   const SimpleCounter({super.key});
@@ -22,7 +20,7 @@ class _SimpleCounterState extends State<SimpleCounter> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Simple Counter',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
@@ -34,6 +32,9 @@ class _SimpleCounterState extends State<SimpleCounter> {
           Container(
             width: 100,
             height: 70,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                color: Colors.grey[300]),
             child: TextButton(
                 onPressed: () {
                   setState(() {
@@ -44,38 +45,35 @@ class _SimpleCounterState extends State<SimpleCounter> {
                   "عتنارك",
                   style: TextStyle(color: Colors.red[300], fontSize: 21),
                 )),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                color: Colors.grey[300]),
           ),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
           Center(
             child: Text(
               "$counter",
-              style: TextStyle(fontSize: 45, fontWeight: FontWeight.w900),
+              style: const TextStyle(fontSize: 45, fontWeight: FontWeight.w900),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
           Container(
             width: 100,
             height: 70,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                color: Colors.grey[300]),
             child: TextButton(
                 onPressed: () {
                   setState(() {
                     counter++;
                   });
                 },
-                child: Text(
+                child: const Text(
                   "استغفر الله",
                   style: TextStyle(color: Colors.green, fontSize: 21),
                 )),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                color: Colors.grey[300]),
           ),
         ],
       ),

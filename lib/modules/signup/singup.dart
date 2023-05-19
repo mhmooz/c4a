@@ -1,8 +1,9 @@
 import 'package:c4a/shared/components/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -21,17 +22,17 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up",
+        title: const Text("Sign Up",
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.message),
+            icon: const Icon(Icons.message),
             color: Colors.white,
           ),
           IconButton(
-              onPressed: () {}, icon: Icon(Icons.search), color: Colors.white)
+              onPressed: () {}, icon: const Icon(Icons.search), color: Colors.white)
         ],
         backgroundColor: Colors.purple,
       ),
@@ -40,11 +41,13 @@ class _SignUpState extends State<SignUp> {
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Icon(Icons.home),
+        child: const Icon(Icons.home),
       ),
       body: Form(
         key: formKey,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             defaultFormField(
                 controller: username_controller,
@@ -56,8 +59,8 @@ class _SignUpState extends State<SignUp> {
                   }
                   return null;
                 },
-                prefix: Icon(Icons.man)),
-            SizedBox(
+                prefix: const Icon(Icons.man)),
+            const SizedBox(
               height: 20,
             ),
             defaultFormField(
@@ -70,10 +73,12 @@ class _SignUpState extends State<SignUp> {
                   }
                   return null;
                 },
-                prefix: Icon(Icons.email)),
-            SizedBox(height: 20),
+                prefix: const Icon(Icons.email)),
+            const SizedBox(height: 20),
             defaultFormField(
-                suffix: Icon(Icons.remove_red_eye),
+                suffix: isPassword
+                    ? const Icon(Icons.visibility)
+                    : const Icon(Icons.visibility_off),
                 suffixPressed: () {
                   setState(() {
                     isPassword = !isPassword;
@@ -88,9 +93,9 @@ class _SignUpState extends State<SignUp> {
                   }
                   return null;
                 },
-                prefix: Icon(Icons.lock),
+                prefix: const Icon(Icons.lock),
                 isPassword: isPassword),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             defaultButton(
@@ -99,8 +104,6 @@ class _SignUpState extends State<SignUp> {
                 },
                 text: 'sign up')
           ],
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
         ),
       ),
     );

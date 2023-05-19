@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../models/user/user_model.dart';
 
@@ -70,12 +68,14 @@ class Usersdata extends StatelessWidget {
       phone: '4878788878',
     ),
   ];
+
+  Usersdata({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: Text('The Users Page'),
+        title: const Text('The Users Page'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -100,7 +100,7 @@ class Usersdata extends StatelessWidget {
             backgroundColor: Colors.blue,
             child: Text("${user.id}"),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Expanded(
@@ -108,11 +108,11 @@ class Usersdata extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${user.name}",
-                    style: TextStyle(color: Colors.black, fontSize: 18)),
+                Text(user.name,
+                    style: const TextStyle(color: Colors.black, fontSize: 18)),
                 Text(
-                  "${user.phone}",
-                  style: TextStyle(color: Colors.grey, fontSize: 18),
+                  user.phone,
+                  style: const TextStyle(color: Colors.grey, fontSize: 18),
                 )
               ],
             ),

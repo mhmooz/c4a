@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:c4a/modules/bmi_result/bmi_result.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({super.key});
@@ -28,11 +26,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 6, 29, 49),
+      backgroundColor: const Color.fromARGB(255, 6, 29, 49),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 6, 29, 49),
+        backgroundColor: const Color.fromARGB(255, 6, 29, 49),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'BMI CALCULATOR',
           style: TextStyle(color: Colors.white),
         ),
@@ -57,10 +55,10 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: isMale
-                          ? Color.fromARGB(255, 9, 37, 59)
-                          : Color.fromARGB(255, 5, 27, 44),
+                          ? const Color.fromARGB(255, 9, 37, 59)
+                          : const Color.fromARGB(255, 5, 27, 44),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
                         Icon(
                           Icons.male,
@@ -78,7 +76,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -91,10 +89,10 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: isMale
-                          ? Color.fromARGB(255, 5, 27, 44)
-                          : Color.fromARGB(255, 9, 37, 59),
+                          ? const Color.fromARGB(255, 5, 27, 44)
+                          : const Color.fromARGB(255, 9, 37, 59),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
                         Icon(
                           Icons.female,
@@ -115,7 +113,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Padding(
@@ -123,7 +121,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Color.fromARGB(255, 9, 37, 59),
+                color: const Color.fromARGB(255, 9, 37, 59),
               ),
               alignment: Alignment.topCenter,
               height: 200,
@@ -131,14 +129,14 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
                     'HEIGHT',
                     style: TextStyle(color: Colors.grey[700], fontSize: 20),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Row(
@@ -148,12 +146,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     children: [
                       Text(
                         '${height.round()}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             fontSize: 50),
                       ),
-                      Text(
+                      const Text(
                         'cm',
                         style: TextStyle(fontSize: 20, color: Colors.white30),
                       ),
@@ -173,7 +171,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,23 +181,23 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Color.fromARGB(255, 9, 37, 59),
+                    color: const Color.fromARGB(255, 9, 37, 59),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
                         "WEIGHT",
                         style: TextStyle(color: Colors.grey[700], fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         '$weight',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             fontSize: 50),
@@ -213,13 +211,13 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                 weight--;
                               });
                             },
-                            child: Icon(
+                            heroTag: 'weight.remove',
+                            backgroundColor: const Color.fromARGB(255, 20, 51, 75),
+                            child: const Icon(
                               Icons.remove,
                             ),
-                            heroTag: 'weight.remove',
-                            backgroundColor: Color.fromARGB(255, 20, 51, 75),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           FloatingActionButton(
@@ -228,40 +226,40 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                 weight++;
                               });
                             },
-                            child: Icon(
+                            heroTag: 'weight.add',
+                            backgroundColor: const Color.fromARGB(255, 20, 51, 75),
+                            child: const Icon(
                               Icons.add,
                             ),
-                            heroTag: 'weight.add',
-                            backgroundColor: Color.fromARGB(255, 20, 51, 75),
                           ),
                         ],
                       )
                     ],
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Container(
                   width: 160,
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Color.fromARGB(255, 9, 37, 59),
+                    color: const Color.fromARGB(255, 9, 37, 59),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
                         "AGE",
                         style: TextStyle(color: Colors.grey[700], fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         '$age',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             fontSize: 50),
@@ -275,13 +273,13 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                 age--;
                               });
                             },
-                            child: Icon(
+                            heroTag: 'age.remove',
+                            backgroundColor: const Color.fromARGB(255, 20, 51, 75),
+                            child: const Icon(
                               Icons.remove,
                             ),
-                            heroTag: 'age.remove',
-                            backgroundColor: Color.fromARGB(255, 20, 51, 75),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           FloatingActionButton(
@@ -290,11 +288,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                 age++;
                               });
                             },
-                            child: Icon(
+                            heroTag: 'age.add',
+                            backgroundColor: const Color.fromARGB(255, 20, 51, 75),
+                            child: const Icon(
                               Icons.add,
                             ),
-                            heroTag: 'age.add',
-                            backgroundColor: Color.fromARGB(255, 20, 51, 75),
                           ),
                         ],
                       )
@@ -319,7 +317,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                         builder: (context) => BMI_RESULT(
                             result: result.round(), age: age, isMale: isMale)));
               },
-              child: Text(
+              child: const Text(
                 'CALCULATE',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
